@@ -21,10 +21,11 @@ int main()
         }
 
         while(k--){
-            int n=*bag.rbegin();
-            eat += n;
-            bag.erase(n);
-            bag.insert(n/2);
+            auto n=bag.end();
+            n--;
+            eat += *n;
+            bag.erase(bag.find(*n));
+            bag.insert(*n/2);
 
         }
         cout<<"candy eat in loop-"<<i+1<<" "<<eat;
