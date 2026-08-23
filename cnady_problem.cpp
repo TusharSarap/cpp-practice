@@ -1,3 +1,6 @@
+// Given N bags of candies, eat from the bag with the maximum candies K times.
+// After eating, replace that bag with half its candies (integer division).
+// Example: N=3, K=3, bags={2,5,3} -> eat 5, 3, 2 -> total = 10.
 
 #include <iostream>
 #include <set>
