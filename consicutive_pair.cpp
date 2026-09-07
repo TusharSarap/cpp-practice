@@ -11,28 +11,36 @@
 #include<set>
 using namespace std;
 
-int main(){
-	int n;
-	cin>>n;
-	set<int> s;
+int main()
+{
+    int i;
+    set<int> m;
+    cin>>i;
+    while(i--){
+            int value;
+            cin>>value;
+            m.insert(value); 
 
-	for(int i=0;i<n;i++){
-		int x;
-		cin>>x;
-		s.insert(x);
-	}
+    }
 
+    auto it= m.begin();
+    int start=*it;
+    int current=*it;
+    int prev=*it;
 
-	int start=*s.begin();
-	int prev=start;
-
-	for(auto x:s){
-        if (x!=prev+1 && start != prev){
-            cout<<"("<<start<<"-"<<prev<<")";
-            start=x;
+    while (it!=m.end()){
+        current =*it;
+        if(current !=prev+1 && start!=prev){
+            cout<<'('<<start<<'-'<<prev<<')';
+            start= current;
+            
         }
-        prev=x;
-	}
-    cout<<"("<<start<<"-"<<prev<<")";
-	return 0;
+        ++it;
+        prev=current;
+    }
+    //for last pair to print
+    if(start!=prev){
+        cout<<'('<<start<<'-'<<prev<<')';
+    }
+    
 }
