@@ -26,37 +26,41 @@
 // Output:
 // You dont have Equal perenthesis closing
 
-#include <iostream>
-#include<string>
-#include<stack>
+#include <bits/stdc++.h>
 using namespace std;
 
+unordered_map<char,int> symbol{{'{',-1},{'[',-2},{'(',-3},{'}',1},{']',2},{')',3}};
+
+string isBalance(string s){
+    stack<char> match;
+    for(char bracket:s){
+        if(symbol[bracket] < 0){
+            match.push(bracket);
+        }
+        else{
+            if(match.empty()){
+                return "No";
+            }
+            char top = match.top();
+            match.pop();
+            if(symbol[top] + symbol[bracket] != 0 ){
+                return "No";
+            }
+            
+        }
+    }
+    if(match.empty()){
+        return "Yes";
+    }
+}
 int main()
 {
-    string s;
-    stack<char> check;
-    cin>>s;
-    
-    for(int i=0;i<s.length();i++){
-        if(s[i]=='('){
-            check.push(s[i]);
-        }
-        else if(s[i]==')'){
-            check.pop();
-        }
-        // cout<<check.top();
+    int count;
+    cin>>count;
+    while(count--){
+        string s;
+        cin>>s;
+        cout<<isBalance(s)<<endl;
     }
     
-    if(check.empty()){
-        cout<<"You have Equal perenthesis closing";
-    }
-    else{
-        cout<<"You dont have Equal perenthesis closing";
-    }
-    
-    
-    
-    
-
-    return 0;
 }
