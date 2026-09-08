@@ -5,6 +5,27 @@
 // "You have Equal perenthesis closing" if all parentheses are balanced,
 // otherwise "You dont have Equal perenthesis closing".
 
+// Example 1:
+// Input:
+// (()())
+
+// Output:
+// You have Equal perenthesis closing
+
+// Example 2:
+// Input:
+// (()
+
+// Output:
+// You dont have Equal perenthesis closing
+
+// Example 3:
+// Input:
+// ())
+
+// Output:
+// You dont have Equal perenthesis closing
+
 #include <iostream>
 #include<string>
 #include<stack>
